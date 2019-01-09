@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+      <!--xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">-->
+<head>
+
+    <title>Index</title>
+</head>
+<body>
+    <div sec:authorize="hasAuthority('ADMIN')">
+        <h1>Hello Admin</h1>
+        <a href="/admin/users/view">User List</a>
+    </div>
+    <div sec:authorize="hasAuthority('USER')">
+        <h1>Hello User</h1>
+        <a href="/profile">User Profile</a>
+    </div>
+
+</body>
+</html>

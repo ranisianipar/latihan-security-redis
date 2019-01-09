@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
-
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
@@ -220,7 +220,7 @@
                         <td class="table__content table__content__role" th:text="${user.role}"></td>
                         <td class="table__content table__content__edit">
                             <div class="btn btn--small btn--blue edit__btn">
-                                    <a th:href="@{admin/user/{id}/edit(id=${user.id})}">
+                                    <a th:href="@{/admin/user/{id}/edit(id=${user.id})}">
                                         Edit
                                     </a>
                             </div>

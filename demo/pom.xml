@@ -74,6 +74,11 @@
 			<version>1.5.18.RELEASE</version>
 		</dependency>
 
+		<!--<dependency>-->
+			<!--<groupId>org.thymeleaf.extras</groupId>-->
+			<!--<artifactId>thymeleaf-extras-springsecurity4</artifactId>-->
+		<!--</dependency>-->
+
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
         <dependency>
             <groupId>io.springfox</groupId>

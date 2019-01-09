@@ -6,9 +6,186 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
     <link rel="stylesheet" th:href="@{../static/style.css}" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        html {
+            box-sizing: border-box;
+            font-size: 62.5%;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #555555;
+            min-height: 100vh;
+        }
+
+        .heading{
+            margin-bottom: 1.5rem;
+        }
+
+        .login,
+        .sign__up{
+            min-height: 100vh;
+            min-width: 100vw;
+            background-color: rgb(12, 112, 194);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login__form,
+        .sign__up__form{
+            background-color: #fff;
+            padding: 4rem 6rem;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1.2rem;
+        }
+
+        .login__form__sign__up,
+        .login__form__login{
+            margin-top: 2rem;
+        }
+
+        .input__form{
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.2rem;
+            border-radius: 1.2rem;
+            border-style: groove;
+        }
+
+        .btn{
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 3rem;
+            transition: all .2s;
+            position: relative;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .btn--big{
+            font-weight: 400;
+            font-size: 1.4rem;
+            padding: 1rem 2.5rem;
+            margin-top: 1rem;
+        }
+
+        .btn--small{
+            font-weight: 400;
+            font-size: 1.2rem;
+            padding: .5rem 1rem;
+        }
+
+        .btn--blue{
+            background-color: #28d;
+        }
+
+        .btn--red{
+            background-color: #ea2c2c;
+        }
+
+        .btn:hover,
+        .btn:focus,
+        .input__form:focus {
+            outline: none;
+        }
+
+        .navbar{
+            display: flex;
+            justify-content: flex-end;
+            background-color: #28d;
+        }
+
+        .navbar__text{
+            color: #fff;
+            margin-right: 2rem;
+            padding : 1rem 1.2rem;
+            font-size: 1.4rem;
+        }
+
+        .view__user{
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+        }
+
+        .table__user__title{
+            font-size: 1.6rem;
+        }
+
+
+        .table__user__content__list{
+            font-size: 1.25rem;
+        }
+
+        .table__user__title,
+        .table__user__content__list{
+            display: grid;
+            grid-template-columns: repeat(7,15rem);
+            margin: 1.6rem 1.2rem;
+        }
+
+        .table__title__no,
+        .table__content__no{
+            grid-column: 1;
+        }
+
+        .table__title__username,
+        .table__content__username{
+            grid-column: 2/span 2;
+        }
+
+
+        .table__title__role,
+        .table__content__role{
+            grid-column: 4/span 2;
+        }
+
+        .table__title__edit,
+        .table__content__edit{
+            grid-column: 6;
+        }
+
+        .table__title__delete,
+        .table__content__delete{
+            grid-column: 7;
+        }
+
+        .edit__user{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem;
+        }
+
+        .edit__form{
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
     <title>View User List</title>
 </head>
+
 <div class="navbar">
     <div class="navbar__username">
         <p class="navbar__text navbar__username__text">Hi, Stelli</p>
@@ -26,13 +203,13 @@
                     <h1 class="heading">Edit </h1>
                 </div>
                 <div class="edit__form__username">
-                    <input type="text" name="username" th:placeholder="${user.username}" class="input__form">
+                    <input type="text" name="username" th:placeholder="${user.username}" class="input__form" />
                 </div>
                 <div class="edit__form__password">
-                    <input type="password" name="password" th:placeholder="${user.password}" class="input__form">
+                    <input type="password" name="password" class="input__form" />
                 </div>
                 <div class="edit__form__button">
-                    <input type="submit" name="edit__btn" placeholder="edit" class="btn btn--big btn--blue">
+                    <input type="submit" name="edit__btn" placeholder="edit" class="btn btn--big btn--blue" />
                 </div>
             </div>
         </div>
