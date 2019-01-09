@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(User user){
         User newUser = new User();
-        newUser.setId(user.getId());
+        newUser.setId(UUID.randomUUID().toString());
         newUser.setUsername(user.getUsername());
         newUser.setPassword(encoder.encode(user.getPassword())); // bagian ini harus di Password Encoder
         if (user.getRole().toString().equals("ADMIN")) newUser.setRole(User.Role.ADMIN);
@@ -42,9 +43,9 @@ public class UserServiceImpl implements UserService {
     public User readUser(String id){
         User existUser = userRepository.findOne(id);
         if (existUser != null) {
-            return userRepository.findOne(id);
+            return existUser;
         }
-        else throw new RuntimeException("User to be read not found!");
+        throw new RuntimeException("User to be read not found!");
     }
 
     @Override
@@ -54,8 +55,8 @@ public class UserServiceImpl implements UserService {
             existUser.setId(id);
             existUser.setUsername(user.getUsername());
             existUser.setPassword(encoder.encode(user.getPassword()));
-            if (user.getRole().toString() == "ADMIN") existUser.setRole(User.Role.ADMIN);
-            else if (user.getRole().toString() == "USER") existUser.setRole(User.Role.USER);
+            if (user.getRole().toString().equals("ADMIN")) existUser.setRole(User.Role.ADMIN);
+            else if (user.getRole().toString().equals("USER")) existUser.setRole(User.Role.USER);
             return userRepository.save(existUser);
         }
         else throw new RuntimeException("User to be updated Not Found");
