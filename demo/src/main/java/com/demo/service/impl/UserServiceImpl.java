@@ -5,6 +5,10 @@ import com.demo.repository.UserRepository;
 import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +17,9 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PasswordEncoder encoder;
 
     @Override
     public List<User> findUsers(){
@@ -25,9 +32,9 @@ public class UserServiceImpl implements UserService {
         User newUser = new User();
         newUser.setId(user.getId());
         newUser.setUsername(user.getUsername());
-        newUser.setPassword(user.getPassword()); // bagian ini harus di Password Encoder
-        if (user.getRole().toString() == "ADMIN") newUser.setRole(User.Role.ADMIN);
-        else if (user.getRole().toString() == "USER") newUser.setRole(User.Role.USER);
+        newUser.setPassword(encoder.encode(user.getPassword())); // bagian ini harus di Password Encoder
+        if (user.getRole().toString().equals("ADMIN")) newUser.setRole(User.Role.ADMIN);
+        else if (user.getRole().toString().equals("USER")) newUser.setRole(User.Role.USER);
         return userRepository.save(newUser);
     }
 
@@ -46,7 +53,7 @@ public class UserServiceImpl implements UserService {
         if (existUser != null) {
             existUser.setId(id);
             existUser.setUsername(user.getUsername());
-            existUser.setPassword(user.getPassword());
+            existUser.setPassword(encoder.encode(user.getPassword()));
             if (user.getRole().toString() == "ADMIN") existUser.setRole(User.Role.ADMIN);
             else if (user.getRole().toString() == "USER") existUser.setRole(User.Role.USER);
             return userRepository.save(existUser);
