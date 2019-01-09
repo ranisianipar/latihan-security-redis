@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{../static/style.css}" />
+
+    <title>View User List</title>
+</head>
+<div class="navbar">
+    <div class="navbar__username">
+        <p class="navbar__text navbar__username__text">Hi, Stelli</p>
+    </div>
+    <div class="navbar__logout">
+        <p class="navbar__text navbar__username__text">Logout</p>
+    </div>
+</div>
+
+<body>
+    <div class="main-section view__user">
+        <div class="view__user__upper">
+            <div class="view__user__heading">
+                <h1 class="heading">User List</h1>
+            </div>
+        </div>
+        <div class="view__user__footer">
+            <div class="table table__user">
+                <div class="table__user__title">
+                    <div class="table__title table__title__no">No</div>
+                    <div class="table__title table__title__username">Username</div>
+                    <div class="table__title table__title__role">Role</div>
+                    <div class="table__title table__title__edit"></div>
+                    <div class="table__title table__title__delete"></div>
+                </div>
+                <div class="table__user__content">
+                    <div class="table__user__content__list">
+                        <div class="table__content table__content__no">1</div>
+                        <div class="table__content table__content__username">Stelli98_</div>
+                        <div class="table__content table__content__role">Admin</div>
+                        <div class="table__content table__content__edit">
+                            <div class="btn btn--small btn--blue edit__btn">
+                                    Edit
+                            </div>
+                        </div>
+                        <div class="table__content table__content__delete">
+                            <div class="btn btn--small btn--red edit__btn">
+                                    Delete
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

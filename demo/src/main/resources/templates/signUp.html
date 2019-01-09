@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+        <title>sign__up Form</title>
+    </head>
+    <body>
+        <div class="main-section sign__up"> 
+            <div class="sign__up__form">
+                <div class="sign__up__form__text">
+                    <h1 class="heading">Sign Up</h1>
+                </div>
+                <div class="sign__up__form__username">
+                    <input type="text" name="username" placeholder="Username" class="input__form">
+                </div>
+                <div class="sign__up__form__password">
+                    <input type="password" name="password" placeholder="Password" class="input__form">
+                </div>
+                <div class="sign__up__form__button">
+                    <input type="submit" name="sign__up__btn" placeholder="sign__up" class="btn btn--big btn--blue">
+                </div>
+                <div class="login__form__login">
+                    <p>You already have account ? Please login <a href="login.html">here</a></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
