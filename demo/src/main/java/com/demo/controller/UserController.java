@@ -6,7 +6,14 @@ import com.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.*;
+=======
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+>>>>>>> 9661eb25c4d994954bf6a5ef5b9038515df3545a
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
@@ -26,6 +33,7 @@ public class UserController {
         modelAndView.setViewName("login");
         return modelAndView;
     }
+<<<<<<< HEAD
 
     @GetMapping("/signup")
     public ModelAndView signup() {
@@ -40,4 +48,6 @@ public class UserController {
         return "redirect:/";
     }
 
+=======
+>>>>>>> 9661eb25c4d994954bf6a5ef5b9038515df3545a
 }
