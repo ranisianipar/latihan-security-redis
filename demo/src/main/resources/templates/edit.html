@@ -26,10 +26,10 @@
                     <h1 class="heading">Edit </h1>
                 </div>
                 <div class="edit__form__username">
-                    <input type="text" name="username" placeholder="Username" class="input__form">
+                    <input type="text" name="username" th:placeholder="${user.username}" class="input__form">
                 </div>
                 <div class="edit__form__password">
-                    <input type="password" name="password" placeholder="Password" class="input__form">
+                    <input type="password" name="password" th:placeholder="${user.password}" class="input__form">
                 </div>
                 <div class="edit__form__button">
                     <input type="submit" name="edit__btn" placeholder="edit" class="btn btn--big btn--blue">

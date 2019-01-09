@@ -56,12 +56,14 @@ public class AdminController {
     public ModelAndView viewUser(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("view");
+        modelAndView.addObject("users", userService.findUsers());
         return modelAndView;
     }
 
     @GetMapping("/user/{id}/edit")
-    public ModelAndView editUser(){
+    public ModelAndView editUser(@PathVariable("id") String id){
         ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("user", userService.readUser(id));
         modelAndView.setViewName("edit");
         return modelAndView;
     }
