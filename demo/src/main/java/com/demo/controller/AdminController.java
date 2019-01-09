@@ -68,5 +68,12 @@ public class AdminController {
         return modelAndView;
     }
 
+    @GetMapping("/user/create")
+    public ModelAndView createUser(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("create");
+        return modelAndView;
+    }
+
 
 }

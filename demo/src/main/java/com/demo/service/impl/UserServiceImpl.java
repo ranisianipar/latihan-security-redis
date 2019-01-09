@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User createUser(User user){
         User newUser = new User();
-        newUser.setId(user.getId());
+        newUser.setId(UUID.randomUUID().toString());
         newUser.setUsername(user.getUsername());
         newUser.setPassword(encoder.encode(user.getPassword())); // bagian ini harus di Password Encoder
         if (user.getRole().toString().equals("ADMIN")) newUser.setRole(User.Role.ADMIN);
