@@ -42,9 +42,9 @@ public class UserServiceImpl implements UserService {
     public User readUser(String id){
         User existUser = userRepository.findOne(id);
         if (existUser != null) {
-            return userRepository.findOne(id);
+            return existUser;
         }
-        else throw new RuntimeException("User to be read not found!");
+        throw new RuntimeException("User to be read not found!");
     }
 
     @Override
@@ -54,8 +54,8 @@ public class UserServiceImpl implements UserService {
             existUser.setId(id);
             existUser.setUsername(user.getUsername());
             existUser.setPassword(encoder.encode(user.getPassword()));
-            if (user.getRole().toString() == "ADMIN") existUser.setRole(User.Role.ADMIN);
-            else if (user.getRole().toString() == "USER") existUser.setRole(User.Role.USER);
+            if (user.getRole().toString().equals("ADMIN")) existUser.setRole(User.Role.ADMIN);
+            else if (user.getRole().toString().equals("USER")) existUser.setRole(User.Role.USER);
             return userRepository.save(existUser);
         }
         else throw new RuntimeException("User to be updated Not Found");
